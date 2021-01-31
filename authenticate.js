@@ -50,8 +50,8 @@ exports.verifyAdmin = function(params, err, next) {
 var GoogleStrategy = require('passport-google-oauth-jwt').GoogleOauthJWTStrategy;
 
 exports.googlePassport = passport.use(new GoogleStrategy({
-	clientId: "604975047284-im9me9431a4m8pae0e8qmmn5a89dc1rs.apps.googleusercontent.com",
-	clientSecret: "49PwMBtEgPPgxGtuguXOtDzf"
+	clientId: "",
+	clientSecret: ""
 }, function verify(accessToken, profile, refreshToken, done) {
     console.log(profile)
     User.findOne({googleId: profile.sub}, (err, user) => {
