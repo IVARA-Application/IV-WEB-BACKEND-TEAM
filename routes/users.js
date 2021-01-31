@@ -291,16 +291,26 @@ router.post("/newpassword", (req, res) => {
 module.exports = router;
 
 
-router.get('/auth/google', passport.authenticate('google-oauth-jwt', {
-  callbackUrl: 'http://localhost:5000/users/google/callback',
-  scope: ['profile', 'email']
-}), function (req, res) {
-  res.redirect('/');
-});
+// router.get('/auth/google', passport.authenticate('google-oauth-jwt', {
+//   callbackUrl: 'http://localhost:5000/users/google/callback',
+//   scope: ['profile', 'email']
+// }), function (req, res) {
+//   res.redirect('/');
+// });
 
-router.get('/google/callback', passport.authenticate('google-oauth-jwt', {
-  callbackUrl: 'http://localhost:5000/users/google/callback'
-}), function (req, res) {
-  res.redirect('/');
-}
-);
+// router.get('/google/callback', passport.authenticate('google-oauth-jwt', {
+//   callbackUrl: 'http://localhost:5000/users/google/callback'
+// }), function (req, res) {
+//   res.redirect('/');
+// }
+// );
+
+router.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+router.get('/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
