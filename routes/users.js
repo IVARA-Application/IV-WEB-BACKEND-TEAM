@@ -290,3 +290,17 @@ router.post("/newpassword", (req, res) => {
 });
 
 module.exports = router;
+
+
+router.get('/auth/google', passport.authenticate('google-oauth-jwt', {
+	callbackUrl: 'http://localhost:5000/users/google/callback',
+	scope: 'email'
+}), function(req, res) {
+	res.redirect('/');
+});
+
+router.get('/google/callback', passport.authenticate('google-oauth-jwt', {
+	callbackUrl: 'http://localhost:5000/users/google/callback'
+}), function(req, res) {res.redirect('/');
+}
+  );

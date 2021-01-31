@@ -24,6 +24,7 @@ var User = new Schema({
   resetToken: String,
   expireToken: Date,
   facebookId: String,
+  googleId: String,
   admin: {
     type: Boolean,
     default: false,

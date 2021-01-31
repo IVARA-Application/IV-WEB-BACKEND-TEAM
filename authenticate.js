@@ -46,6 +46,36 @@ exports.verifyAdmin = function(params, err, next) {
     }
 };
 
+
+var GoogleStrategy = require('passport-google-oauth-jwt').GoogleOauthJWTStrategy;
+
+exports.googlePassport = passport.use(new GoogleStrategy({
+	clientId: "604975047284-im9me9431a4m8pae0e8qmmn5a89dc1rs.apps.googleusercontent.com",
+	clientSecret: "49PwMBtEgPPgxGtuguXOtDzf"
+}, function verify(accessToken, profile, refreshToken, done) {
+    console.log(profile)
+    User.findOne({googleId: profile.sub}, (err, user) => {
+        if (err) {
+            return done(err, false);
+        }
+        if (!err && user !== null) {
+            return done(null, user);
+        }
+        else {
+            user = new User({ username: profile.email });
+            user.googleId = profile.sub;
+            user.save((err, user) => {
+                if (err)
+                    return done(err, false);
+                else
+                    return done(null, user);
+            })
+        }
+    });
+}));
+
+
+
 exports.facebookPassport = passport.use(new FacebookTokenStrategy({
     clientID: config.facebook.clientId,
     clientSecret: config.facebook.clientSecret
