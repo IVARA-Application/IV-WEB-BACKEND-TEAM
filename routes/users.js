@@ -1,14 +1,13 @@
-var express = require("express");
+const express = require("express");
 const bodyParser = require("body-parser");
-var User = require("../models/user");
-var passport = require("passport");
-var authenticate = require("../authenticate");
+const User = require("../models/user");
+const passport = require("passport");
+const authenticate = require("../authenticate");
 const cors = require("./cors");
 const { getMaxListeners } = require("../models/user");
 const crypto = require("crypto");
-const user = require("../models/user");
 
-var router = express.Router();
+const router = express.Router();
 router.use(bodyParser.json());
 
 
@@ -16,7 +15,7 @@ router.use(bodyParser.json());
 router.options("*", cors.corsWithOptions, (req, res) => {
   res.sendStatus(200);
 });
-router.get("/", cors.corsWithOptions, function(req, res, next) {
+router.get("/", cors.corsWithOptions, function (req, res, next) {
   User.find({})
     .then(
       (users) => {
@@ -29,7 +28,7 @@ router.get("/", cors.corsWithOptions, function(req, res, next) {
     .catch((err) => next(err));
 });
 
-router.put("/:userId", cors.corsWithOptions, function(req, res, next) {
+router.put("/:userId", cors.corsWithOptions, function (req, res, next) {
   User.findByIdAndUpdate(
     req.params.userId,
     {
@@ -163,7 +162,7 @@ router.get("/checkJWTToken", cors.corsWithOptions, (req, res) => {
   })(res, res);
 });
 
-router.post("/changepassword", cors.corsWithOptions, function(req, res) {
+router.post("/changepassword", cors.corsWithOptions, function (req, res) {
   User.findOne({ _id: req.body.userId }, (err, user) => {
     // Check if error connecting
     if (err) {
@@ -176,7 +175,7 @@ router.post("/changepassword", cors.corsWithOptions, function(req, res) {
         user.changePassword(
           req.body.oldPassword,
           req.body.newPassword,
-          function(err) {
+          function (err) {
             if (err) {
               if (err.name === "IncorrectPasswordError") {
                 res.json({ success: false, message: "Incorrect password" }); // Return error
@@ -270,7 +269,7 @@ router.post("/newpassword", (req, res) => {
       return res.status(422).json({ error: "Try again session expired" });
     } else {
       console.log("idhar bhi aa gya");
-      user.setPassword(newPassword, function(err, user) {
+      user.setPassword(newPassword, function (err, user) {
         if (err) {
           console.log("shit idhar aa gya " + err);
           res.json({
@@ -293,14 +292,15 @@ module.exports = router;
 
 
 router.get('/auth/google', passport.authenticate('google-oauth-jwt', {
-	callbackUrl: 'http://localhost:5000/users/google/callback',
-	scope: 'email'
-}), function(req, res) {
-	res.redirect('/');
+  callbackUrl: 'http://localhost:5000/users/google/callback',
+  scope: ['profile', 'email']
+}), function (req, res) {
+  res.redirect('/');
 });
 
 router.get('/google/callback', passport.authenticate('google-oauth-jwt', {
-	callbackUrl: 'http://localhost:5000/users/google/callback'
-}), function(req, res) {res.redirect('/');
+  callbackUrl: 'http://localhost:5000/users/google/callback'
+}), function (req, res) {
+  res.redirect('/');
 }
-  );
+);
