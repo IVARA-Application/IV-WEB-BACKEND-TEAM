@@ -5,15 +5,15 @@ const Schema = mongoose.Schema;
 const ContactSchema = new Schema({
     name: {
         type: String,
-        required: true
+        
     },
     email: {
         type: String,
-        required: true
+        
     },
     query: {
         type: String,
-        required: true
+        
     }
 });
 
