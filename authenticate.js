@@ -45,63 +45,6 @@ exports.verifyAdmin = function (params, err, next) {
     }
 };
 
-// exports.googlePassport = passport.use(new GoogleStrategy({
-//     clientId: process.env.GCLIENT_ID,
-//     clientSecret: process.env.GCLIENT_SECRET
-// }, function verify(accessToken, profile, refreshToken, done) {
-//     console.log("Profile", profile);
-//     User.findOne({ googleId: profile.sub }, (err, user) => {
-//         if (err) {
-//             return done(err, false);
-//         }
-//         if (!err && user !== null) {
-//             return done(null, user);
-//         }
-//         else {
-//             user = new User({ username: profile.email });
-//             user.googleId = profile.sub;
-//             user.save((err, user) => {
-//                 if (err)
-//                     return done(err, false);
-//                 else
-//                     return done(null, user);
-//             })
-//         }
-//     });
-// }));
-
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-
-exports.googlePassport = passport.use(new GoogleStrategy({
-    clientID: process.env.GCLIENT_ID,
-    clientSecret: process.env.GCLIENT_SECRET,
-    callbackURL: "http://localhost:5000/users/google/callback"
-},
-    function (accessToken, refreshToken, profile, cb) {
-        console.log(profile);
-        User.findOne({ googleId: profile.id }, (err, user) => {
-            if (err) {
-                return cb(err, false);
-            }
-            if (!err && user !== null) {
-                return cb(null, user);
-            }
-            else {
-                user = new User({ username: profile.emails[0].value });
-                user.googleId = profile.id;
-                user.firstname = profile.name.givenName;
-                user.lastname = profile.name.familyName;
-                user.save((err, user) => {
-                    if (err)
-                        return cb(err, false);
-                    else
-                        return cb(null, user);
-                })
-            }
-        });
-    }
-));
-
 
 
 exports.facebookPassport = passport.use(new FacebookTokenStrategy({

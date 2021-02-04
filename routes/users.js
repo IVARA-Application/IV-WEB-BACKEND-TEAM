@@ -305,12 +305,57 @@ module.exports = router;
 // }
 // );
 
-router.get('/auth/google',
+
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+var Userdetails;
+
+exports.googlePassport = passport.use(new GoogleStrategy({
+    clientID: process.env.GCLIENT_ID,
+    clientSecret: process.env.GCLIENT_SECRET,
+    callbackURL: "http://localhost:5000/users/google/callback"
+},
+    function (accessToken, refreshToken, profile, cb) {
+        User.findOne({ googleId: profile.id }, (err, user) => {
+            if (err) {
+                return cb(err, false);
+            }
+            if (!err && user !== null) {
+                return cb(null, user);
+            }
+            else {
+                user = new User({ username: profile.emails[0].value });
+                user.googleId = profile.id;
+                user.firstname = profile.name.givenName;
+                user.lastname = profile.name.familyName;
+                user.save((err, user) => {
+                    if (err)
+                        return cb(err, false);
+                    else{
+                       Userdetails = user;
+                      console.log(Userdetails);
+                        return cb(null, user);}
+                })
+            }
+        });
+    }
+));
+
+
+router.get('/auth/google',cors.corsWithOptions,
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-router.get('/google/callback',
+router.get('/google/callback',  cors.corsWithOptions,
   passport.authenticate('google', { failureRedirect: '/' }),
   function (req, res) {
-    // Successful authentication, redirect home.
+    var token = authenticate.getToken({ _id: req.user._id });
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.json({
+      success: true,
+      token: token,
+      user: Userdetails,
+      status: "You are successfully logged in!",
+    });
     res.redirect('/');
   });
