@@ -12,6 +12,7 @@ const authenticate = require('./authenticate');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const contactUsRouter = require('./routes/contactUs');
 
 
 const mongoose = require('mongoose');
@@ -47,6 +48,7 @@ app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/contactus',contactUsRouter)
 
 app.use(express.static(path.join(__dirname, 'public')));
 
