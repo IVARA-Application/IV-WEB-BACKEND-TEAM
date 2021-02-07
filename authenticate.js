@@ -5,6 +5,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken');
 const FacebookTokenStrategy = require('passport-facebook-token');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 
 exports.local = passport.use(new LocalStrategy(User.authenticate()));
@@ -73,3 +74,40 @@ exports.facebookPassport = passport.use(new FacebookTokenStrategy({
     });
 }
 ));
+
+let Userdetails
+exports.googlePassport = passport.use(new GoogleStrategy({
+    clientID: process.env.GCLIENT_ID,
+    clientSecret: process.env.GCLIENT_SECRET,
+    callbackURL: "http://localhost:5000/users/google/callback"
+},
+    function (accessToken, refreshToken, profile, cb) {
+        console.log(profile)
+        User.findOne({ googleId: profile.id }, (err, user) => {
+            if (err) {
+                return cb(err, false);
+            }
+            if (!err && user !== null) {
+                return cb(null, user);
+            }
+            else {
+                console.log(profile)
+                user = new User({ username: profile.emails[0].value });
+                user.googleId = profile.id;
+                user.firstname = profile.name.givenName;
+                user.lastname = profile.name.familyName;
+                user.save((err, user) => {
+                    if (err)
+                        return cb(err, false);
+                    else {
+                        Userdetails = user;
+                        console.log(Userdetails);
+                        return cb(null, user);
+                    }
+                })
+            }
+        });
+    }
+));
+
+exports.Userdetails = Userdetails

@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const User = require("../models/user");
 const passport = require("passport");
 const authenticate = require("../authenticate");
-const cors = require("./cors");
+// const cors = require("./cors");
 const { getMaxListeners } = require("../models/user");
 const crypto = require("crypto");
 
@@ -12,10 +12,10 @@ router.use(bodyParser.json());
 
 
 /* GET users listing. */
-router.options("*", cors.corsWithOptions, (req, res) => {
+router.options("*", (req, res) => {
   res.sendStatus(200);
 });
-router.get("/", cors.corsWithOptions, function (req, res, next) {
+router.get("/", function (req, res, next) {
   User.find({})
     .then(
       (users) => {
@@ -28,7 +28,7 @@ router.get("/", cors.corsWithOptions, function (req, res, next) {
     .catch((err) => next(err));
 });
 
-router.put("/:userId", cors.corsWithOptions, function (req, res, next) {
+router.put("/:userId", function (req, res, next) {
   User.findByIdAndUpdate(
     req.params.userId,
     {
@@ -47,7 +47,7 @@ router.put("/:userId", cors.corsWithOptions, function (req, res, next) {
     .catch((err) => next(err));
 });
 
-router.post("/signup", cors.corsWithOptions, (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   User.register(
     new User({ username: req.body.username }),
     req.body.password,
@@ -84,7 +84,7 @@ router.post("/signup", cors.corsWithOptions, (req, res, next) => {
   );
 });
 
-router.post("/login", cors.corsWithOptions, (req, res, next) => {
+router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       return next(err);
@@ -116,7 +116,7 @@ router.post("/login", cors.corsWithOptions, (req, res, next) => {
   })(req, res, next);
 });
 
-router.get("/logout", cors.corsWithOptions, (req, res) => {
+router.get("/logout", (req, res) => {
   if (req.session) {
     req.session.destroy();
     res.clearCookie("session-id");
@@ -145,7 +145,7 @@ router.get(
   }
 );
 
-router.get("/checkJWTToken", cors.corsWithOptions, (req, res) => {
+router.get("/checkJWTToken", (req, res) => {
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
     if (err) {
       return next(err);
@@ -162,7 +162,7 @@ router.get("/checkJWTToken", cors.corsWithOptions, (req, res) => {
   })(res, res);
 });
 
-router.post("/changepassword", cors.corsWithOptions, function (req, res) {
+router.post("/changepassword", function (req, res) {
   User.findOne({ _id: req.body.userId }, (err, user) => {
     // Check if error connecting
     if (err) {
@@ -199,7 +199,7 @@ router.post("/changepassword", cors.corsWithOptions, function (req, res) {
   });
 });
 
-// router.post("/resetpassword", cors.corsWithOptions, function(req, res) {
+// router.post("/resetpassword", function(req, res) {
 //   console.log(req.body);
 //   User.findOne({ username: req.body.userName }, (err, user) => {
 //     console.log(user);
@@ -306,56 +306,30 @@ module.exports = router;
 // );
 
 
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-var Userdetails;
-
-exports.googlePassport = passport.use(new GoogleStrategy({
-    clientID: process.env.GCLIENT_ID,
-    clientSecret: process.env.GCLIENT_SECRET,
-    callbackURL: "http://localhost:5000/users/google/callback"
-},
-    function (accessToken, refreshToken, profile, cb) {
-        User.findOne({ googleId: profile.id }, (err, user) => {
-            if (err) {
-                return cb(err, false);
-            }
-            if (!err && user !== null) {
-                return cb(null, user);
-            }
-            else {
-                user = new User({ username: profile.emails[0].value });
-                user.googleId = profile.id;
-                user.firstname = profile.name.givenName;
-                user.lastname = profile.name.familyName;
-                user.save((err, user) => {
-                    if (err)
-                        return cb(err, false);
-                    else{
-                       Userdetails = user;
-                      console.log(Userdetails);
-                        return cb(null, user);}
-                })
-            }
-        });
-    }
-));
+// var Userdetails;
 
 
-router.get('/auth/google',cors.corsWithOptions,
+const { Userdetails } = require('../authenticate')
+
+
+
+router.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-router.get('/google/callback',  cors.corsWithOptions,
+router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   function (req, res) {
-    var token = authenticate.getToken({ _id: req.user._id });
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
+    // var token = authenticate.getToken({ _id: req.user._id });
+    // res.statusCode = 200;
+    // res.setHeader("Content-Type", "application/json");
     res.json({
       success: true,
-      token: token,
-      user: Userdetails,
+      // token: token,
+      user: req.user,
       status: "You are successfully logged in!",
     });
-    res.redirect('/');
+    // console.log(Userdetails)
+    // console.log(req.user)
+    res.redirect('http://localhost:3000');
   });
