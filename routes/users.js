@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const User = require("../models/user");
 const passport = require("passport");
 const authenticate = require("../authenticate");
-// const cors = require("./cors");
+const cors = require("./cors");
 const { getMaxListeners } = require("../models/user");
 const crypto = require("crypto");
 
@@ -12,10 +12,10 @@ router.use(bodyParser.json());
 
 
 /* GET users listing. */
-router.options("*", (req, res) => {
+router.options("*",cors.corsWithOptions, (req, res) => {
   res.sendStatus(200);
 });
-router.get("/", function (req, res, next) {
+router.get("/",cors.corsWithOptions, function (req, res, next) {
   User.find({})
     .then(
       (users) => {
@@ -323,13 +323,13 @@ router.get('/google/callback',
     // var token = authenticate.getToken({ _id: req.user._id });
     // res.statusCode = 200;
     // res.setHeader("Content-Type", "application/json");
-    res.json({
-      success: true,
-      // token: token,
-      user: req.user,
-      status: "You are successfully logged in!",
-    });
+    // res.json({
+    //   success: true,
+    //   // token: token,
+    //   user: req.user,
+    //   status: "You are successfully logged in!",
+    // });
     // console.log(Userdetails)
     // console.log(req.user)
-    res.redirect('http://localhost:3000');
+    res.redirect("http://localhost:3000/dashboard/" + req.user._id);
   });
