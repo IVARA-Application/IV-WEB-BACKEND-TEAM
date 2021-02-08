@@ -1,0 +1,69 @@
+.big-container{
+    background: #F2F2F2;
+    font-family: Montserrat;
+    color: #4E5DE1;
+
+}
+.heading
+{
+padding-top: 20px;
+font-size: 45px;
+font-style: normal;
+font-weight: 500;
+line-height: 55px;
+letter-spacing: 0.1em;
+text-align: left;
+text-align: center;
+}
+.option{
+    margin-top: 7%;
+}
+.card-img-top{
+    height: 80px;
+    width: 80px !important;
+    position: absolute;
+    top:-50%;
+    left: 40%;
+}
+.cardContainer{
+    margin-bottom:20%;
+    height: 100px;
+    box-shadow: 1px 1px 0px  rgb(199, 199, 199),
+    2px 2px 0px  rgb(199, 199, 199),
+    3px 3px 0px rgb(199, 199, 199),
+    4px 4px 0px  rgb(199, 199, 199),
+    5px 5px 0px  rgb(199, 199, 199),
+    6px 6px 0px  rgb(199, 199, 199);
+}
+.studyClass{
+    position: absolute;
+    left: 40%;
+    top: 50%;
+ 
+ }
+@media (max-width: 575.98px){
+    .heading{
+        margin-bottom: 60px;
+    }
+    .card{
+        margin-bottom:20% !important;
+    }
+}
+
+
+@media (max-width: 987.98px){
+    .heading{
+        margin-bottom: 60px;
+    }
+    .card{
+        margin-bottom:40%;
+    }
+}
+@media (max-width: 360.98px){
+    .heading{
+        margin-bottom: 60px;
+    }
+    .card{
+        margin-bottom:30% !important;
+    }
+}

@@ -1,0 +1,359 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.header-top {
+  font-size: 12px;
+  padding: 8px;
+  background-color: white;
+}
+
+.header-top a {
+  color: #fff;
+}
+
+.header-top ul li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.header-top .header-top-left i {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.header-top .header-top-left a:hover {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.header-top .header-top-left a:hover i {
+  color: #fab700;
+}
+
+.header-top .header-top-right {
+  text-align: right;
+}
+
+.header-top .header-top-right a {
+  margin-right: 10px;
+}
+
+.header-top .lnr {
+  display: none;
+}
+
+@media (max-width: 588px) {
+  .header-top .lnr {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+  }
+  .header-top .text {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-top {
+    display: none;
+  }
+}
+
+.top-head-btn {
+  background: #fab700;
+  padding: 9px 26px;
+}
+
+.main-menu {
+  padding-top: 20px;
+}
+
+#header {
+  padding: 0px 0px 20px 0px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+#header.header-scrolled {
+  background: white;
+  transition: all 0.5s;
+}
+
+@media (max-width: 673px) {
+  #logo {
+    margin-left: 20px;
+  }
+}
+
+#header #logo h1 {
+  font-size: 34px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+#header #logo h2 {
+  color: black;
+}
+
+#header #logo h1 a,
+#header #logo h1 a:hover {
+  color: #fff;
+  padding-left: 10px;
+  border-left: 4px solid #fab700;
+}
+
+#header #logo img {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #header #logo h1 {
+    font-size: 28px;
+  }
+  #header #logo img {
+    max-height: 40px;
+  }
+}
+
+.primary-btn {
+  background-color: #fab700;
+  line-height: 42px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 1px solid transparent;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  position: relative;
+}
+.form-btn {
+  background-color: darkblue;
+  /* line-height: 42px; */
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 1px solid transparent;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  font-family: poppins;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  position: relative;
+}
+/* .form-btn:hover {
+  background: transparent;
+  color: darkblue;
+  border-color: darkblue;
+} */
+.form-btn:focus {
+  outline: none;
+}
+.primary-btn:focus {
+  outline: none;
+}
+
+.primary-btn span {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  right: 30px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.primary-btn:hover {
+  background: transparent;
+  color: #f7c00b;
+  border-color: #fab700;
+}
+
+.primary-btn.white {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.primary-btn.white span {
+  color: #fff;
+}
+
+.primary-btn.white:hover {
+  background: #fff;
+  color: #fab700;
+}
+
+.primary-btn.white:hover span {
+  color: #fab700;
+}
+
+.form-btn-green {
+  background-color: green;
+  line-height: 42px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 1px solid transparent;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  position: relative;
+}
+.form-btn-green:hover {
+  background: transparent;
+  color: greenyellow;
+  border-color: greenyellow;
+}
+.form-btn-green:focus {
+  outline: none;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.banner-area {
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+}
+
+.banner-area .primary-btn {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.banner-area .overlay-bg {
+  background-color: #a1aaf6;
+}
+
+.banner-content h2 {
+  color: rgb(255, 255, 255);
+  font-family: "poppins", sans-serif;
+  font-size: 70px;
+  /* font-weight: 100; */
+  line-height: 1em;
+}
+.banner-content h3 {
+  color: rgb(255, 255, 255);
+  font-family: "poppins", sans-serif;
+  /* font-weight: 10; */
+  word-spacing: 3px;
+}
+
+@media (max-width: 991.98px) {
+  .banner-content h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .banner-content h1 br {
+    display: none;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .banner-content h1 {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner-content h1 {
+    margin-top: 50px;
+  }
+}
+
+.banner-content .sub-head {
+  max-width: 550px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+@media (max-width: 960px) {
+  .banner-content br {
+    display: none;
+  }
+}
+
+.header-btn {
+  background: #fff;
+  border-radius: 0;
+  color: #222 !important;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 1px solid transparent;
+  color: #fff;
+  width: auto;
+}
+
+.header-btn:hover {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff !important;
+}
+.bird {
+  animation: anime 0.75s infinite linear alternate;
+}
+
+.girl {
+  animation: anime 1s infinite linear alternate;
+}
+
+.skill {
+  animation: anime 1.5s infinite linear alternate;
+}
+
+.vtc {
+  animation: anime 1s infinite linear alternate;
+}
+
+.sac {
+  animation: anime 1.25s infinite linear alternate;
+}
+
+.girl1,
+.books {
+  animation: anime 1.25s infinite linear alternate;
+}
+
+@keyframes anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}

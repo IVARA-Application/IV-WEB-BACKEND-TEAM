@@ -1,0 +1,121 @@
+.login-container {
+  height: 100vh;
+  background: linear-gradient(109.89deg, #4da0b0 24.67%, #4e5de1 101.3%);
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  padding: 0 !important;
+}
+.login {
+  padding: 0 !important;
+  margin-bottom: 50px;
+  padding-left: 10% !important;
+}
+.loginHeading {
+  padding-top: 10%;
+  font-size: 50px;
+  line-height: 62px;
+  padding-bottom: 10px;
+}
+.subHeading {
+  font-size: 32px;
+  line-height: 40px;
+  padding-bottom: 30px;
+}
+.input-group-text {
+  color: white !important;
+  background: black !important;
+  border:1px solid black;
+
+  box-shadow: 0px 10px 15px 0px #000000 10%;
+}
+.inputContainer {
+  padding-bottom: 5%;
+  width: 800px !important;
+}
+.inputNumber {
+  background: #f2f2f2 !important;
+  box-shadow: 0px 10px 15px 0px #000000 10%;
+  border-radius: 9px;
+}
+.submitButton {
+  font-size: 25px !important;
+  line-height: 34px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  background: #f2f2f2 !important;
+  padding: 10px 30px 10px 30px !important;
+  font-size: 32px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 9px;
+  color: #000000;
+}
+.emailId {
+  display: inline;
+  margin-left: 410px;
+  font-size: 30px;
+  line-height: 124.9%;
+}
+.contact {
+  font-size: 20px;
+  line-height: 124.9%;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .loginHeading {
+    padding-top: 40px;
+  }
+  .inputContainer {
+    width: 300px !important;
+  }
+  .emailId {
+    display: block;
+    margin-left: 0;
+    font-size: 20px;
+    line-height: 84.9%;
+  }
+  .submitButton {
+    font-size: 20px !important;
+    letter-spacing: 0.05em;
+    text-align: center;
+    background: #f2f2f2 !important;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    margin-bottom: 30px;
+  }
+  .contact {
+    font-size: 18px;
+    line-height: 124.9%;
+    text-align: center;
+  }
+}
+@media (max-width: 967px){
+  .inputContainer {
+      width: 400px !important;
+    }
+}
+@media (max-width: 768px){
+  .inputContainer {
+      width: 600px !important;
+    }
+}
+@media (max-width: 576px){
+    .inputContainer {
+        width: 250px !important;
+      }
+}
+
+@media (max-width: 428px){
+    .inputContainer {
+        width: 200px !important;
+      }
+}
+
+@media (max-width: 307px){
+  .inputContainer {
+      width: 200px !important;
+    }
+}

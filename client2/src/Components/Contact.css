@@ -1,0 +1,173 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Poppins';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+  padding: 0px;
+}
+
+Form {
+  background-color: #4e5de1;
+  color: white;
+  text-align: center;
+  background: linear-gradient(100deg, #4e5de1, #4da0b0);
+  font-size: 20px;
+  align-items: center;
+  padding: 0px 10px;
+  position:relative;
+}
+
+content {
+  display: flex;
+  float: left;
+  font-size: 20px;
+  padding: 0px 50px;
+  height:50px;
+}
+
+
+Form FormGroup  {
+  display: flex;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 20px;
+  justify-content: center;
+}
+
+Form Input {
+  width: 400px;
+  height: 25px;
+  border-radius: 10px;
+  box-align: center;
+  margin: 5px 10px;
+}
+
+.footer {
+  color: white;
+  float: left;
+  display: flex;
+  padding: 15px;
+  background-color:#4E5DE1;
+  background: linear-gradient(50deg,#4E5DE1 ,#252424 );
+  background: radial-gradient(ellipse farthest-corner at 0 140%,#252424  0% #316dc2 70%, #252424  0% #4e95d3 70%);
+ /* background-image: radial-gradient(
+    ellipse farthest-corner at 0 300%,
+    #4e5de1 70%,
+    #252424 70%);*/
+}
+
+.footer p {
+  padding: 30px 175px;
+  line-height: 22px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.footer span {
+  font-size: 30px;
+}
+
+Form Button {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-top:10px;
+  margin-bottom:70px;
+}
+
+
+content p span{
+  text-align:right;
+  padding:0px 0px 0px 950px;
+}
+
+footer {
+  background-image: linear-gradient(100deg, #4e5de1, #252424);
+  color: white;
+  font-size: 16px;
+}
+
+footer p{
+  float:left;
+  padding:5px 275px;
+  font-size:16px;
+}
+
+.fade-in {
+  animation: fadeIn ease 10s;
+  -webkit-animation: fadeIn ease 10s;
+  -moz-animation: fadeIn ease 10s;
+  -o-animation: fadeIn ease 10s;
+  -ms-animation: fadeIn ease 10s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+#pulse{
+  display:flex;
+  float:left;
+  justify-content: space-evenly;
+  padding:5px;
+}
+
+#pulse:hover{
+  animation: pulse 0.5s ease-in infinite;
+}
+#push:hover{
+  animation: pulse 0.3s linear 1;
+}
+#pop:hover{
+  animation: pop 0.3s linear 1;
+}
+@keyframes pulse{
+  25%  {transform: scale(0.9);}
+  75%  {transform: scale(1.1);}
+}
+@keyframes push{
+  50%  {transform: scale(0.8);}
+}
+@keyframes pop{
+  50%  {transform: scale(1.2);}
+}
+
+.copy{
+  text-align:right;
+  padding:0px 0px 0px 50px;
+}

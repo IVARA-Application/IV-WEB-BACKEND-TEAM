@@ -1,0 +1,233 @@
+.bg
+{
+    background: #F2F2F2;
+}
+.btn4
+{
+position: absolute;
+width: 198px;
+height: 74px;
+left: 10.62%;
+right: 75.62%;
+top: 16.44%;
+bottom: 75.33%;
+background: #5B8CF5;
+border-radius: 8px;
+align-items: center;
+}
+.text1{
+position: absolute;
+left: 18.47%;
+/* right: 78.47%; */
+top:15px;
+bottom: 77.56%; 
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+
+color: #FFFFFF;
+}
+.text2
+{
+    position: absolute;
+left: 41.6%;
+right: 34.79%;
+top: 18.11%;
+bottom: 78.33%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 26px;
+line-height: 32px;
+/* identical to box height */
+
+letter-spacing: 0.1em;
+
+color: #5B8CF5;
+}
+.text3
+{
+/* Physics */
+
+
+position: absolute;
+left: 10.62%;
+right: 80.76%;
+top: 32.22%;
+bottom: 64%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+color: #5B8CF5;
+
+}
+.text4
+{
+    /* Chemistrty */
+
+
+position: absolute;
+left: 10.62%;
+right: 76.6%;
+top: 43%;
+bottom: 53.22%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+color: #5B8CF5;
+
+}
+.text5
+{
+    /* Mathematics */
+
+
+position: absolute;
+left: 10.76%;
+right: 74.24%;
+top: 54.89%;
+bottom: 41.33%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+color: #5B8CF5;
+}
+.text6
+{
+    /* English */
+
+
+position: absolute;
+left: 10.76%;
+right: 80.69%;
+top: 66%;
+bottom: 30.22%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 34px;
+letter-spacing: 0.1em;
+
+color: #5B8CF5;
+}
+.download{
+    position: absolute;
+    width:263px;
+    height: 65px;
+left: 41.6%;
+right: 40.14%;
+top: 33.22%;
+bottom: 61.89%;
+
+background: #FFFFFF;
+border-radius: 9px;
+
+font-family: poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+letter-spacing: 0.1em;
+box-shadow: -5px 15px 30px 0px rgba(0, 0, 0, 0.25);
+color: #514E4E;
+}
+
+.download2
+{
+    width:263px;
+    height: 65px;
+position: absolute;
+left: 41.6%;
+
+top: 44%;
+bottom: 51.11%;
+box-shadow: -5px 15px 30px 0px rgba(0, 0, 0, 0.25);
+background: #FFFFFF;
+border-radius: 9px;
+
+
+
+
+font-family: poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+letter-spacing: 0.1em;
+
+color: #514E4E;
+}
+.download3
+{
+    width:263px;
+    height: 65px;
+    position: absolute;
+left: 41.6%;
+box-shadow: -5px 15px 30px 0px rgba(0, 0, 0, 0.25);
+top: 55.89%;
+bottom: 39.22%;
+
+background: #FFFFFF;
+border-radius: 9px;
+
+
+
+
+font-family: poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+letter-spacing: 0.1em;
+
+color: #514E4E;
+}
+.download4
+{
+    width:263px;
+    height: 65px;
+    position: absolute;
+    left: 41.6%;
+    right: 40.14%;
+    top: 67%;
+    bottom: 28.11%;
+    box-shadow: -5px 15px 30px 0px rgba(0, 0, 0, 0.25);
+    background: #FFFFFF;
+    border-radius: 9px;
+    
+font-family: poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+letter-spacing: 0.1em;
+
+color: #514E4E;
+}
+.icon,
+.text {
+  vertical-align: middle;
+  display: inline-block;
+}
