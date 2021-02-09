@@ -79,7 +79,7 @@ let Userdetails
 exports.googlePassport = passport.use(new GoogleStrategy({
     clientID: process.env.GCLIENT_ID,
     clientSecret: process.env.GCLIENT_SECRET,
-    callbackURL: "http://localhost:5000/users/google/callback"
+    callbackURL: "https://ivara-app.herokuapp.com/users/google/callback"
 },
     function (accessToken, refreshToken, profile, cb) {
         console.log(profile)
