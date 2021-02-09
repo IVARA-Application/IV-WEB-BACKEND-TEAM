@@ -12,10 +12,10 @@ router.use(bodyParser.json());
 
 
 /* GET users listing. */
-router.options("*",cors.corsWithOptions, (req, res) => {
+router.options("*", cors.corsWithOptions, (req, res) => {
   res.sendStatus(200);
 });
-router.get("/",cors.corsWithOptions, function (req, res, next) {
+router.get("/", cors.corsWithOptions, function (req, res, next) {
   User.find({})
     .then(
       (users) => {
@@ -331,5 +331,6 @@ router.get('/google/callback',
     // });
     // console.log(Userdetails)
     // console.log(req.user)
-    res.redirect("http://localhost:3000/dashboard/" + req.user._id);
+    // res.redirect("http://localhost:3000/dashboard/" + req.user._id);
+    res.redirect("http://ivara-app.netlify.app/dashboard/" + req.user._id);
   });
