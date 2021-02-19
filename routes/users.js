@@ -332,5 +332,5 @@ router.get('/google/callback',
     // console.log(Userdetails)
     // console.log(req.user)
     // res.redirect("http://localhost:3000/dashboard/" + req.user._id);
-    res.redirect("http://iventorsinitiatives.com/redirect/" + req.user._id);
+    res.redirect("https://iventorsinitiatives.com/dashboard/" + req.user._id);
   });
