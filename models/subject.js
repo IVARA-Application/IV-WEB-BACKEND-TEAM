@@ -15,7 +15,7 @@ const SubjectSchema = new Schema({
                     //Video 1.1 with descp and url
                     name: String,
                     description: String,
-                    link: String,
+                    // link: as desired
                 }
             ]
         }
